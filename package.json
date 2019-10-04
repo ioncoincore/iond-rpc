@@ -1,0 +1,43 @@
+{
+  "name": "@ioncoin/iond-rpc",
+  "description": "ION Client Library to connect to ION Core via RPC",
+  "version": "0.1.0",
+  "author": {
+    "name": "The ION Core Developers"
+  },
+  "contributors": [
+    {
+      "name": "LooorTor",
+      "email": "LooorTor@gmail.com"
+    }
+  ],
+  "keywords": [
+    "ion",
+    "rpc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ioncoincore/iond-rpc"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test -R spec",
+    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- --recursive"
+  },
+  "dependencies": {
+    "axios": "^0.16.2"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "chai": "^1.10.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
+  },
+  "bugs": {
+    "url": "https://github.com/ioncoincore/iond-rpc/issues"
+  },
+  "homepage": "https://github.com/ioncoincore/iond-rpc"
+}
