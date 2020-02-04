@@ -1,7 +1,7 @@
 {
   "name": "@ioncoin/iond-rpc",
   "description": "ION Client Library to connect to ION Core via RPC",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "The ION Core Developers"
   },
@@ -9,6 +9,10 @@
     {
       "name": "LooorTor",
       "email": "LooorTor@gmail.com"
+    },
+    {
+      "name": "Mitchell Cash",
+      "email": "mitchell@mitchellcash.com"
     }
   ],
   "keywords": [
