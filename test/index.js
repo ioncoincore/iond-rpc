@@ -1,27 +1,26 @@
-'use strict'
+'use strict';
 
-var chai = require('chai')
-var RpcClient = require('../')
-var util = require('util')
-var EventEmitter = require('events').EventEmitter
-var sinon = require('sinon')
-var should = chai.should()
-var http = require('http')
-var https = require('https')
-var async = require('async')
+var chai = require('chai');
+var RpcClient = require('../');
+var util = require('util');
+var EventEmitter = require('events').EventEmitter;
+var sinon = require('sinon');
+var should = chai.should();
+var http = require('http');
+var https = require('https');
+var async = require('async');
 
-if (!setImmediate) setImmediate = setTimeout
+if (!setImmediate) setImmediate = setTimeout;
 
-describe('RpcClient', function () {
+describe('RpcClient', function() {
+  it('should initialize the main object', function() {
+    should.exist(RpcClient);
+  });
 
-  it('should initialize the main object', function () {
-    should.exist(RpcClient)
-  })
-
-  it('should be able to create instance', function () {
-    var s = new RpcClient()
-    should.exist(s)
-  })
+  it('should be able to create instance', function() {
+    var s = new RpcClient();
+    should.exist(s);
+  });
 
   // it('default to rejectUnauthorized as true', function () {
   //   var s = new RpcClient()
@@ -29,62 +28,59 @@ describe('RpcClient', function () {
   //   s.rejectUnauthorized.should.equal(true)
   // })
 
-  it('should be able to define a custom logger', function () {
+  it('should be able to define a custom logger', function() {
     var customLogger = {
-      info: function () {},
-      warn: function () {},
-      err: function () {},
-      debug: function () {}
-    }
-    RpcClient.config.log = customLogger
-    var s = new RpcClient()
-    s.log.should.equal(customLogger)
-    RpcClient.config.log = false
-  })
+      info: function() {},
+      warn: function() {},
+      err: function() {},
+      debug: function() {}
+    };
+    RpcClient.config.log = customLogger;
+    var s = new RpcClient();
+    s.log.should.equal(customLogger);
+    RpcClient.config.log = false;
+  });
 
-  it('should be able to define the logger to normal', function () {
-    RpcClient.config.logger = 'normal'
-    var s = new RpcClient()
-    s.log.should.equal(RpcClient.loggers.normal)
-  })
+  it('should be able to define the logger to normal', function() {
+    RpcClient.config.logger = 'normal';
+    var s = new RpcClient();
+    s.log.should.equal(RpcClient.loggers.normal);
+  });
 
-  it('should be able to define the logger to none', function () {
-    RpcClient.config.logger = 'none'
-    var s = new RpcClient()
-    s.log.should.equal(RpcClient.loggers.none)
-  })
+  it('should be able to define the logger to none', function() {
+    RpcClient.config.logger = 'none';
+    var s = new RpcClient();
+    s.log.should.equal(RpcClient.loggers.none);
+  });
 
-  function FakeResponse () {
-    EventEmitter.call(this)
+  function FakeResponse() {
+    EventEmitter.call(this);
   }
 
-  util.inherits(FakeResponse, EventEmitter)
+  util.inherits(FakeResponse, EventEmitter);
 
-  function FakeRequest () {
-    EventEmitter.call(this)
-    return this
+  function FakeRequest() {
+    EventEmitter.call(this);
+    return this;
   }
 
-  util.inherits(FakeRequest, EventEmitter)
-  FakeRequest.prototype.setHeader = function () {}
-  FakeRequest.prototype.write = function (data) {
-    this.data = data
-  }
-  FakeRequest.prototype.end = function () {}
+  util.inherits(FakeRequest, EventEmitter);
+  FakeRequest.prototype.setHeader = function() {};
+  FakeRequest.prototype.write = function(data) {
+    this.data = data;
+  };
+  FakeRequest.prototype.end = function() {};
 
   it('should use https', function() {
-
     var client = new RpcClient({
       user: 'user',
       pass: 'pass',
-      port: 55003,
+      port: 55003
     });
     client.protocol.should.equal('https');
-
   });
 
   it('should use http', function() {
-
     var client = new RpcClient({
       user: 'user',
       pass: 'pass',
@@ -93,7 +89,6 @@ describe('RpcClient', function () {
       protocol: 'http'
     });
     client.protocol.should.equal('http');
-
   });
 
   // it('should call a method and receive response', function (done) {
@@ -527,4 +522,4 @@ describe('RpcClient', function () {
   //   })
 
   // })
-})
+});
