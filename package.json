@@ -23,7 +23,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test -R spec",
-    "coverage": "node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- --recursive"
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test"
   },
   "dependencies": {
     "axios": "^0.16.2"
@@ -32,8 +32,8 @@
     "async": "^0.9.0",
     "chai": "^1.10.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^1.1.0-alpha.1",
     "mocha": "^2.1.0",
+    "nyc": "^15.0.0",
     "sinon": "^1.12.2"
   },
   "bugs": {
