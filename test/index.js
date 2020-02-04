@@ -72,29 +72,29 @@ describe('RpcClient', function () {
   }
   FakeRequest.prototype.end = function () {}
 
-  // it('should use https', function () {
+  it('should use https', function() {
 
-  //   var client = new RpcClient({
-  //     user: 'user',
-  //     pass: 'pass',
-  //     port: 8332,
-  //   })
-  //   client.protocol.should.equal(https)
+    var client = new RpcClient({
+      user: 'user',
+      pass: 'pass',
+      port: 55003,
+    });
+    client.protocol.should.equal('https');
 
-  // })
+  });
 
-  // it('should use http', function () {
+  it('should use http', function() {
 
-  //   var client = new RpcClient({
-  //     user: 'user',
-  //     pass: 'pass',
-  //     host: 'localhost',
-  //     port: 8332,
-  //     protocol: 'http'
-  //   })
-  //   client.protocol.should.equal(http)
+    var client = new RpcClient({
+      user: 'user',
+      pass: 'pass',
+      host: 'localhost',
+      port: 55003,
+      protocol: 'http'
+    });
+    client.protocol.should.equal('http');
 
-  // })
+  });
 
   // it('should call a method and receive response', function (done) {
 
