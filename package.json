@@ -30,7 +30,7 @@
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm run test"
   },
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "async": "^3.1.1",
